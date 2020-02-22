@@ -6,7 +6,7 @@
     </form>
     <ul>
       <li v-for='(todo, index) in todos'>
-        <input v-model='todo.completed' type='checkbox'>{{todo.text}}
+        <input v-model='todo.completed' type='checkbox'>{{todo}}
       </li>
     </ul>
     <input v-on:click='removeCompleted()' type='button' value='Remove Completed'>
@@ -19,7 +19,7 @@ export default {
     return { 
       todos: [],
       text: '',
-      completed: []
+      completedTodos: []
     } 
   },
   methods: {
@@ -29,10 +29,11 @@ export default {
       this.text = ''
     },
     removeCompleted() {
-      for(var i = 0; i < this.todos.length; i++){
+      let i = this.todos.length
+      while(i--){
         if(this.todos[i].completed === true){
-          this.todos.splice(i, 1)
-        }
+          this.todos.splice(i, 1)	
+	} 
       }
     }
   }
