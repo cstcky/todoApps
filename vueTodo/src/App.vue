@@ -20,7 +20,7 @@ export default {
       todos: [],
       text: '',
       completedTodos: []
-    } 
+    }
   },
   methods: {
     add() {
